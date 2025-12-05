@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+         text-decoration: none;
+         background-color: aqua;
+         display: inline-block;
+         width:104px;
+         height:50px;
+         margin-top: 30px;
+         font-size: 2rem;
+        }
+        div{
+            border:3px solid blue;
+            text-align: center;
+            margin-top: 40px;
+
+        }
+    </style>
+</head>
+<body>
+    <a href="{% url 'about'%}">About</a>
+    <a href="{% url 'contact'%}">contact</a>
+    <a href="{% url 'service'%}">services</a>
+    <div>
+    <h1>Welcome to home page</h1>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque, illo. Amet labore provident quam repellendus rem qui, doloribus et eligendi sequi ipsa architecto. Quis recusandae molestias blanditiis qui perferendis quidem.</p>
+    </div>
+    
+</body>
+</html>
