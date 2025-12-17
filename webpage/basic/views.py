@@ -1,5 +1,6 @@
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
+import math
 
 # Create your views here.
 def home(request):
@@ -65,6 +66,24 @@ def manual_pagination(request):
         "total_pages": total_pages,
         "current_page": page,
         "data":  pagination_data
+    })
+
+# DIFFERENT  APPROACH
+def Pagination_data(request):
+     items=["orange","apple","banana","kiwi","pome-granate","papaya","dragon fruit","grapes","custard-apple","pine-apple","mango","Strawberry","Watermelon","Cherry","Blackberry","Blueberry"]
+     limit = int(request.GET.get("limit",4))
+     page = int(request.GET.get("page",1))
+     start = (page - 1) * limit
+     end = start + limit
+     total_pages = math.ceil(len(items) / limit)
+     pagination_data=(items[start:end])
+     if page < 1 or page > total_pages:
+      return JsonResponse({"error": "Invalid page number"}, status=400)
+     return JsonResponse({
+          "limit": limit,
+          "total_pages": total_pages,
+          "current_page": page,
+          "data":  pagination_data
     })
 
 
