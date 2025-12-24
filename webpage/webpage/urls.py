@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from basic.views import home,about,contact,service,sample,sample1,sample2,sample3,filter_views,manual_pagination,Pagination_data 
+from basic.views import Carlist, CreateProfile, ProductProfile, home,about,contact,service,sample,sample1,sample2,sample3,filter_views,manual_pagination,Pagination_data,new_pagination_data,Createuser, CreateProduct
+from newapp.views import MovieTickets, MovienewTickets
+from registration.views import CourseDetails
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,7 +32,16 @@ urlpatterns = [
     path('sample3/',sample3),
     path('filterviews/', filter_views),
     path('manualpages/', manual_pagination),
-     path('paginationdata/',Pagination_data )
+    path('paginationdata/',Pagination_data ),
+    path('new_pagination/',new_pagination_data),
+    path('userdata/',Createuser),
+    path("products/", CreateProduct),
+    path("user/", CreateProfile),
+    path('product/', ProductProfile),
+    path('carpro/', Carlist),
+    path('movie/', MovieTickets),
+    path("mo/", MovienewTickets),
+    path("Registration/",CourseDetails)
 ]
 
 
