@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from basic.views import Carlist, CreateProfile, ProductProfile, home,about,contact,service,sample,sample1,sample2,sample3,filter_views,manual_pagination,Pagination_data,new_pagination_data,Createuser, CreateProduct
 from newapp.views import MovieTickets, MovienewTickets
-from registration.views import CourseDetails
+from registration.views import CheckingDetails, CourseDetails
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -41,7 +41,8 @@ urlpatterns = [
     path('carpro/', Carlist),
     path('movie/', MovieTickets),
     path("mo/", MovienewTickets),
-    path("Registration/",CourseDetails)
+    path("Registration/",CourseDetails),
+    path("Registrations/",CheckingDetails)
 ]
 
 

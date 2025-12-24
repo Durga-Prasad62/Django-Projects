@@ -23,10 +23,31 @@ def CourseDetails(request):
       print(details.course)
       return JsonResponse({"status":"success","message": "Registration Successful"},status =201)
     else:
-      return JsonResponse({"Other than Post any Method Is not allowed"})
+      return JsonResponse({"status":"fail","msg":"Other than Post any Method Is not allowed"})
   except Exception as e:
         print(e)
         return JsonResponse({"Error":"something went wrong"},status=500)
+  
+#Read by means Get
+def CheckingDetails(request):
+   try:
+    if request.method == 'GET':
+     result= list(CourseRegistration.objects.values()) #getting all the records from table
+     print(result)
+     if len(result) == 0:
+      msg = "No Records Found"
+     else:
+      msg = "Data Retrived SuccessFully"
+          
+      return JsonResponse({"status":"success","message": msg ,"data":result,"total no of records":len(result)},status =201)
+    else:
+      return JsonResponse({"status":"fail","msg":"Other than Post any Method Is not allowed"})
+   except Exception as e:
+        print(e)
+        return JsonResponse({"Error":"something went wrong"},status=500)
+   
+  
+
 
 
 
